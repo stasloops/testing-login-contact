@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { FC } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import validationSchema from './validation'
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -11,7 +11,7 @@ type Inputs = {
   password: string
 };
 
-const Login = () => {
+const Login:FC = () => {
   const auth = useAuth();
   const navigate = useHistory()
 
@@ -27,7 +27,7 @@ const Login = () => {
       errors,
       isValid
     }
-  } = useForm<Inputs>({mode: 'onBlur' ,resolver: yupResolver(validationSchema)})
+  } = useForm<Inputs>({mode: 'onBlur', resolver: yupResolver(validationSchema)})
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -60,7 +60,7 @@ const Login = () => {
         <input className='registration__input' {...register("password")}/> 
         <div className='registration__error'>{errors?.password?.message}</div>
       
-       <input className='registration__submit' type="submit"/>
+       <button className='registration__submit' type="submit">LOGIN</button>
     </form>
   </main>
   )

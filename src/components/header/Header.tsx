@@ -12,6 +12,10 @@ const Header:FC = () => {
         navigate.push("/login");
     };
 
+    const onProfile = () => {
+        navigate.push('/profile')
+    }
+
   return (
     <header className='header'>
         <div className='header__inner'>
@@ -27,7 +31,7 @@ const Header:FC = () => {
             {auth.isLoaded &&
                 (auth.user ? 
                     (<>
-                        <div className='header__items'>{auth.user.firstName} {auth.user.lastName}</div>
+                        <div onClick={onProfile} className='header__items'>{auth.user.firstName} {auth.user.lastName}</div>
                         <div onClick={onLogOut} className='header__mar-30 header__items'>LOG OUT</div>
                     </>) 
                     : 

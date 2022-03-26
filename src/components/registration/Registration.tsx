@@ -24,13 +24,12 @@ const Registration:FC = () => {
   const {
     register,
     handleSubmit,
-    reset,
     setError,
     formState: {
       errors,
       isValid
     }
-  } = useForm<Inputs>({mode: 'onBlur' ,resolver: yupResolver(validationSchema)})
+  } = useForm<Inputs>({mode: 'onBlur', resolver: yupResolver(validationSchema)})
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     try {
@@ -72,7 +71,7 @@ const Registration:FC = () => {
         <input className='registration__input' {...register("password")}/> 
         <div className='registration__error'>{errors?.password?.message}</div>
       
-      <input className='registration__submit' type="submit"/>
+      <button className='registration__submit' type="submit">REGISTRATION</button>
     </form>
   </main>
   )
